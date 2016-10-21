@@ -14,10 +14,7 @@
 	// show search results realtime
 	$txtSearch.on('keyup',function(){
 		$contacts.each(function() {
-			//todo: find why contains doesn't work on data
-			console.log($txtSearch.val().toLowerCase());
-			console.log($(this).data('searchstring').toLowerCase().contains('qsdf'));
-			if (!$(this).data('searchstring').contains($txtSearch.val().toLowerCase())) {
+			if ($(this).data('searchstring').indexOf($txtSearch.val().toLowerCase()) == -1 ) {
 				$(this).hide();
 			} else {
 				$(this).show();
